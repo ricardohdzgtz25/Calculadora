@@ -24,6 +24,16 @@ def calcular():
         pantalla.delete(0, tk.END)
         pantalla.insert(0, "Error")
 
+# VENTANA PRINCIPAL
+
+ventana = tk.Tk()
+ventana.title("Calculadora")
+ventana.geometry("300x400")
+ventana.resizable(False, False)
+
+pantalla = tk.Entry(ventana, font=("Arial", 24), justify="right")
+pantalla.pack(fill="both", padx=10, pady=10)
+
 
 
 
