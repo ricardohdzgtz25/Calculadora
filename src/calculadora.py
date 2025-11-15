@@ -51,6 +51,9 @@ for texto, fila, col in botones:
         tk.Button(frame_botones, text=texto, width=5, height=2,
                   command=calcular).grid(row=fila, column=col, padx=5, pady=5)
 
+    else:
+        tk.Button(frame_botones, text=texto, width=5, height=2,
+                  command=lambda t=texto: click_boton(t)).grid(row=fila, column=col, padx=5, pady=5)
 
 
 
