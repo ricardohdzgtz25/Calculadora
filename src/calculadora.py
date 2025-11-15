@@ -46,6 +46,10 @@ botones = [
 frame_botones = tk.Frame(ventana)
 frame_botones.pack()
 
+for texto, fila, col in botones:
+    if texto == "=":
+        tk.Button(frame_botones, text=texto, width=5, height=2,
+                  command=calcular).grid(row=fila, column=col, padx=5, pady=5)
 
 
 
