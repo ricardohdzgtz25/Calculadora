@@ -17,7 +17,21 @@ def aplicar_estilos(ventana):
         foreground="white",
         borderwidth=0
     )
-    
+
+    style.map(
+        "TButton",
+        background=[("active", "#3F6E75")] 
+    )
+
+    # Pantalla de la calculadora
+    style.configure(
+        "Entrada.TEntry",
+        foreground="black",
+        fieldbackground="#D9EFEB", 
+        borderwidth=3
+    )
+
+
 # FUNCIONES DE LA CALCULADORA
 historial = []
 
