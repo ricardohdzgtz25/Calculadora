@@ -15,6 +15,14 @@ def borrar_uno():
 def borrar_todo():
     pantalla.delete(0, tk.END)
 
+def calcular():
+    try:
+        resultado = eval(pantalla.get())
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, str(resultado))
+    except:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, "Error")
 
 
 
