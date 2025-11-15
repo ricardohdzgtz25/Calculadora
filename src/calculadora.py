@@ -2,27 +2,40 @@ import tkinter as tk
 from tkinter import ttk
 
 # FUNCIONES DE LA CALCULADORA
+historial = []
+
 def click_boton(valor):
+    historial.append(pantalla.get())
     entrada_actual = pantalla.get()
     pantalla.delete(0, tk.END)
     pantalla.insert(0, entrada_actual + str(valor))
 
 def borrar_uno():
     entrada_actual = pantalla.get()
+    if entrada_actual:  
+        historial.append(entrada_actual)
     pantalla.delete(0, tk.END)
     pantalla.insert(0, entrada_actual[:-1])
 
 def borrar_todo():
+    historial.append(pantalla.get())
     pantalla.delete(0, tk.END)
 
 def calcular():
     try:
+        historial.append(pantalla.get())  
         resultado = eval(pantalla.get())
         pantalla.delete(0, tk.END)
         pantalla.insert(0, str(resultado))
     except:
         pantalla.delete(0, tk.END)
         pantalla.insert(0, "Error")
+
+def deshacer():
+    if historial:
+        ultimo_valor = historial.pop()
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, ultimo_valor)
 
 # VENTANA PRINCIPAL
 
@@ -57,21 +70,18 @@ for texto, fila, col in botones:
 
 #Botones especiales
 btn_borrar = tk.Button(ventana, 
-text="Borrar 1 elemento", 
+text="Borrar Uno", 
 width=10, 
 command=borrar_uno)
 btn_borrar.pack(pady=5)
 
 btn_borrar_todo = tk.Button(ventana, 
-text="Borrarando Todo", 
-width=10, 
-command=borrar_todo)
+text="Borrar Todo",
+width=10, command=borrar_todo)
 btn_borrar_todo.pack(pady=5)
+btn_deshacer = tk.Button(ventana, text="Deshacer",width=10, command=deshacer)
+btn_deshacer.pack(pady=5)
 ventana.mainloop()
-
-
-
-
 
 
 
