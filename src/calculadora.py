@@ -103,17 +103,33 @@ for texto, fila, col in botones:
 #Botones especiales
 btn_borrar = tk.Button(ventana, 
 text="Borrar Uno", 
-width=10, 
+width=10,
+bg="#2F5C63",
+fg="white",
+activebackground="#3F6E75", 
 command=borrar_uno)
 btn_borrar.pack(pady=5)
 
-btn_borrar_todo = tk.Button(ventana, 
-text="Borrar Todo",
-width=10, command=borrar_todo)
+btn_borrar_todo = tk.Button(
+    ventana,
+    text="Borrar Todo",
+    width=10,
+    bg="#2F5C63",
+    fg="white",
+    activebackground="#3F6E75",
+    command=borrar_todo
+)
 btn_borrar_todo.pack(pady=5)
-btn_deshacer = tk.Button(ventana, text="Deshacer",width=10, command=deshacer)
+
+btn_deshacer = tk.Button(
+    ventana,
+    text="Deshacer",
+    width=10,
+    bg="#2F5C63",
+    fg="white",
+    activebackground="#3F6E75",
+    command=deshacer
+)
 btn_deshacer.pack(pady=5)
+
 ventana.mainloop()
-
-
-
