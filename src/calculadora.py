@@ -1,6 +1,23 @@
 import tkinter as tk
 from tkinter import ttk
 
+def aplicar_estilos(ventana):
+    style = ttk.style(ventana)
+    style.theme_use("default")
+
+    # Fondo Suave Menta
+    ventana.configure(bg="#E8F5F3")
+
+    #Estilo para botones
+    style.configure(
+        "TButton",
+        font=("Arial", 11, "bold"),
+        padding=6,
+        background="#2F5C63",
+        foreground="white",
+        borderwidth=0
+    )
+    
 # FUNCIONES DE LA CALCULADORA
 historial = []
 
