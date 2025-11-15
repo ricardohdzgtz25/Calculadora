@@ -55,13 +55,15 @@ for texto, fila, col in botones:
         tk.Button(frame_botones, text=texto, width=5, height=2,
                   command=lambda t=texto: click_boton(t)).grid(row=fila, column=col, padx=5, pady=5)
 
+#Botones especiales
+btn_borrar = tk.Button(ventana, text="Borrar 1", width=10, command=borrar_uno)
+btn_borrar.pack(pady=5)
 
+btn_borrar_todo = tk.Button(ventana, text="Borrar Todo", width=10, command=borrar_todo)
 
+btn_borrar_todo.pack(pady=5)
 
-
-
-
-
+ventana.mainloop()
 
 
 
