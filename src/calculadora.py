@@ -87,16 +87,17 @@ botones = [
     ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3)
 ]
 
-frame_botones = tk.Frame(ventana)
+frame_botones = tk.Frame(ventana, bg="#E8F5F3")
 frame_botones.pack()
 
 for texto, fila, col in botones:
     if texto == "=":
         tk.Button(frame_botones, text=texto, width=5, height=2,
-                  command=calcular).grid(row=fila, column=col, padx=5, pady=5)
+                  command=calcular, bg="#2F5C63", activebackground="#3F6E75", fg="white").grid(row=fila, column=col, padx=5, pady=5)
 
     else:
         tk.Button(frame_botones, text=texto, width=5, height=2,
+                 bg="#2F5C63", fg="white", activebackground="#3F6E75",
                   command=lambda t=texto: click_boton(t)).grid(row=fila, column=col, padx=5, pady=5)
 
 #Botones especiales
