@@ -1,6 +1,37 @@
 import tkinter as tk
 from tkinter import ttk
 
+def aplicar_estilos(ventana):
+    style = ttk.style(ventana)
+    style.theme_use("default")
+
+    # Fondo Suave Menta
+    ventana.configure(bg="#E8F5F3")
+
+    #Estilo para botones
+    style.configure(
+        "TButton",
+        font=("Arial", 11, "bold"),
+        padding=6,
+        background="#2F5C63",
+        foreground="white",
+        borderwidth=0
+    )
+
+    style.map(
+        "TButton",
+        background=[("active", "#3F6E75")] 
+    )
+
+    # Pantalla de la calculadora
+    style.configure(
+        "Entrada.TEntry",
+        foreground="black",
+        fieldbackground="#D9EFEB", 
+        borderwidth=3
+    )
+
+
 # FUNCIONES DE LA CALCULADORA
 historial = []
 
@@ -56,32 +87,49 @@ botones = [
     ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3)
 ]
 
-frame_botones = tk.Frame(ventana)
+frame_botones = tk.Frame(ventana, bg="#E8F5F3")
 frame_botones.pack()
 
 for texto, fila, col in botones:
     if texto == "=":
         tk.Button(frame_botones, text=texto, width=5, height=2,
-                  command=calcular).grid(row=fila, column=col, padx=5, pady=5)
+                  command=calcular, bg="#2F5C63", activebackground="#3F6E75", fg="white").grid(row=fila, column=col, padx=5, pady=5)
 
     else:
         tk.Button(frame_botones, text=texto, width=5, height=2,
+                 bg="#2F5C63", fg="white", activebackground="#3F6E75",
                   command=lambda t=texto: click_boton(t)).grid(row=fila, column=col, padx=5, pady=5)
 
 #Botones especiales
 btn_borrar = tk.Button(ventana, 
 text="Borrar Uno", 
-width=10, 
+width=10,
+bg="#2F5C63",
+fg="white",
+activebackground="#3F6E75", 
 command=borrar_uno)
 btn_borrar.pack(pady=5)
 
-btn_borrar_todo = tk.Button(ventana, 
-text="Borrar Todo",
-width=10, command=borrar_todo)
+btn_borrar_todo = tk.Button(
+    ventana,
+    text="Borrar Todo",
+    width=10,
+    bg="#2F5C63",
+    fg="white",
+    activebackground="#3F6E75",
+    command=borrar_todo
+)
 btn_borrar_todo.pack(pady=5)
-btn_deshacer = tk.Button(ventana, text="Deshacer",width=10, command=deshacer)
+
+btn_deshacer = tk.Button(
+    ventana,
+    text="Deshacer",
+    width=10,
+    bg="#2F5C63",
+    fg="white",
+    activebackground="#3F6E75",
+    command=deshacer
+)
 btn_deshacer.pack(pady=5)
+
 ventana.mainloop()
-
-
-
