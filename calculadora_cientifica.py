@@ -17,3 +17,6 @@ ALLOWED_NAMES = {
     'pow': math.pow,
     'abs': abs
 }
+
+OPERADORES = "+-*/^."
+
