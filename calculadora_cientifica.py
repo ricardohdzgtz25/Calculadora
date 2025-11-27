@@ -108,3 +108,29 @@ def insert_power():
     entrada_actual = pantalla.get()
     pantalla.delete(0, tk.END)
     pantalla.insert(0, entrada_actual + "^")
+
+# INTERFAZ 
+
+ventana = tk.Tk()
+ventana.title("calculadora cientifica")
+ventana.geometry("400x750")
+ventana.configure(bg="#121212")
+
+C_FONDO = "#121212"
+C_BTN_NUM = "#1E1E1E"
+C_BTN_OP = "#00E5FF"
+C_BTN_SCI = "#BB86FC"
+C_BTN_TXT = "#FFFFFF"
+C_BTN_DEL = "#CF6679"
+C_BTN_EQ = "#03DAC6"
+
+pantalla = tk.Entry(
+    ventana, font=("Roboto", 32),
+    justify="right",
+    bg=C_FONDO, fg=C_BTN_TXT,
+    bd=0,
+    insertbackground="white"
+)
+pantalla.pack(fill="x", padx=20, pady=(30, 20))
+
+frame_cientifico = tk.Frame(ventana, bg=C_FONDO)
