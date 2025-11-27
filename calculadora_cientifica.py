@@ -25,3 +25,8 @@ def sanitize_expression(expr: str) -> str:
     expr = expr.replace(',', '.')
     return expr
 
+def safe_eval(expression: str):
+    try:
+        return eval(expression, {"__builtins__": None}, ALLOWED_NAMES)
+    except Exception:
+        raise
