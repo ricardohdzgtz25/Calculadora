@@ -24,7 +24,10 @@ def sanitize_expression(expr: str) -> str:
     return expr
 
 def safe_eval(expression: str):
-    return eval(expression, {"__builtins__": None}, ALLOWED_NAMES)
+    try:
+        return eval(expression, {"__builtins__": None}, ALLOWED_NAMES)
+    except Exception:
+        raise
 
 #  LÓGICA DE BOTONES Y OPERACIONES 
 
@@ -43,3 +46,8 @@ def click_boton(valor):
 
     pantalla.delete(0, tk.END)
     pantalla.insert(0, entrada_actual + str(valor))
+    
+def borrar_uno():
+    entrada_actual = pantalla.get()
+    pantalla.delete(0, tk.END)
+    pantalla.insert(0, entrada_actual[:-1])
