@@ -18,3 +18,10 @@ ALLOWED_NAMES = {
 }
 
 OPERADORES = "+-*/^."
+
+def sanitize_expression(expr: str) -> str:
+    expr = expr.replace('^', '**').replace(',', '.')
+    return expr
+
+def safe_eval(expression: str):
+    return eval(expression, {"__builtins__": None}, ALLOWED_NAMES)
