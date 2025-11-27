@@ -51,3 +51,28 @@ def borrar_uno():
     entrada_actual = pantalla.get()
     pantalla.delete(0, tk.END)
     pantalla.insert(0, entrada_actual[:-1])
+    
+def borrar_todo():
+    pantalla.delete(0, tk.END)
+
+def calcular():
+    expr = pantalla.get().strip()
+    if not expr:
+        return
+
+    expr = sanitize_expression(expr)
+    try:
+        resultado = safe_eval(expr)
+
+        if isinstance(resultado, float):
+            if resultado.is_integer():
+                resultado = int(resultado)
+            else:
+                resultado = round(resultado, 12)
+
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, str(resultado))
+
+    except Exception:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, "Error")
