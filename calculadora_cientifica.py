@@ -20,3 +20,8 @@ ALLOWED_NAMES = {
 
 OPERADORES = "+-*/^."
 
+def sanitize_expression(expr: str) -> str:
+    expr = expr.replace('^', '**')
+    expr = expr.replace(',', '.')
+    return expr
+
