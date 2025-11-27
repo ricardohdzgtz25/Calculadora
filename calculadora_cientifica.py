@@ -25,3 +25,8 @@ def sanitize_expression(expr: str) -> str:
 
 def safe_eval(expression: str):
     return eval(expression, {"__builtins__": None}, ALLOWED_NAMES)
+
+#  LÓGICA DE BOTONES Y OPERACIONES 
+
+def click_boton(valor):
+    entrada_actual = pantalla.get()
