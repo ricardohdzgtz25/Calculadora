@@ -76,3 +76,35 @@ def calcular():
     except Exception:
         pantalla.delete(0, tk.END)
         pantalla.insert(0, "Error")
+
+def reciprocal():
+    expr = pantalla.get().strip()
+    if not expr:
+        return
+
+    expr_s = sanitize_expression(expr)
+    try:
+        val = safe_eval(expr_s)
+        res = 1 / val
+
+        if isinstance(res, float) and res.is_integer():
+            res = int(res)
+        else:
+            res = round(res, 12)
+
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, str(res))
+
+    except Exception:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, "Error")
+
+def insert_root():
+    entrada_actual = pantalla.get()
+    pantalla.delete(0, tk.END)
+    pantalla.insert(0, entrada_actual + "^(1/")
+
+def insert_power():
+    entrada_actual = pantalla.get()
+    pantalla.delete(0, tk.END)
+    pantalla.insert(0, entrada_actual + "^")
