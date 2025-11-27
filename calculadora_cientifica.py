@@ -30,3 +30,16 @@ def safe_eval(expression: str):
 
 def click_boton(valor):
     entrada_actual = pantalla.get()
+
+    if entrada_actual and entrada_actual[-1] in OPERADORES and valor in OPERADORES:
+        return
+
+    if valor == '.':
+        i = len(entrada_actual) - 1
+        while i >= 0 and entrada_actual[i] not in "+-*/^()":
+            if entrada_actual[i] == '.':
+                return
+            i -= 1
+
+    pantalla.delete(0, tk.END)
+    pantalla.insert(0, entrada_actual + str(valor))
