@@ -209,3 +209,16 @@ for i in range(5):
     frame_main.grid_rowconfigure(i, weight=1)
 for i in range(4):
     frame_main.grid_columnconfigure(i, weight=1)
+
+    # EVENTOS Y LOOP PRINCIPAL 
+
+def on_key(event):
+    key = event.keysym
+    if key in '0123456789': click_boton(key)
+    elif key == 'Return': calcular()
+    elif key == 'BackSpace': borrar_uno()
+
+ventana.bind_all("<Key>", on_key)
+
+ventana.mainloop()
+
