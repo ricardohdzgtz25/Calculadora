@@ -160,3 +160,28 @@ for text, val in cientific_buttons:
 
     btn.grid(row=r, column=c, padx=3, pady=3, sticky="nsew")
     frame_cientifico.grid_columnconfigure(c, weight=1)
+
+    c += 1
+    if c >= 4:
+        c = 0
+        r += 1
+
+frame_main = tk.Frame(ventana, bg=C_FONDO)
+frame_main.pack(pady=10, padx=10, fill="both", expand=True)
+
+botones_main = [
+    ("C", 0, 0, C_BTN_DEL), ("CE", 0, 1, C_BTN_DEL),
+    ("(", 0, 2, C_BTN_SCI), (")", 0, 3, C_BTN_SCI),
+
+    ("7", 1, 0, C_BTN_NUM), ("8", 1, 1, C_BTN_NUM),
+    ("9", 1, 2, C_BTN_NUM), ("/", 1, 3, C_BTN_OP),
+
+    ("4", 2, 0, C_BTN_NUM), ("5", 2, 1, C_BTN_NUM),
+    ("6", 2, 2, C_BTN_NUM), ("*", 2, 3, C_BTN_OP),
+
+    ("1", 3, 0, C_BTN_NUM), ("2", 3, 1, C_BTN_NUM),
+    ("3", 3, 2, C_BTN_NUM), ("-", 3, 3, C_BTN_OP),
+
+    ("0", 4, 0, C_BTN_NUM), (".", 4, 1, C_BTN_NUM),
+    ("=", 4, 2, C_BTN_EQ), ("+", 4, 3, C_BTN_OP)
+]
