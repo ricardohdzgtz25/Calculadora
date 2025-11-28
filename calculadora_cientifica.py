@@ -185,3 +185,27 @@ botones_main = [
     ("0", 4, 0, C_BTN_NUM), (".", 4, 1, C_BTN_NUM),
     ("=", 4, 2, C_BTN_EQ), ("+", 4, 3, C_BTN_OP)
 ]
+
+for texto, fila, col, color in botones_main:
+
+    if texto == "=": cmd = calcular
+    elif texto == "C": cmd = borrar_uno
+    elif texto == "CE": cmd = borrar_todo
+    else: cmd = lambda t=texto: click_boton(t)
+
+    color_texto = "black" if color in [C_BTN_EQ, C_BTN_OP] else "white"
+
+    btn = tk.Button(
+        frame_main, text=texto,
+        font=("Arial", 16, "bold"),
+        bg=color, fg=color_texto,
+        activebackground="#444",
+        bd=0,
+        command=cmd
+    )
+    btn.grid(row=fila, column=col, padx=4, pady=4, sticky="nsew")
+
+for i in range(5):
+    frame_main.grid_rowconfigure(i, weight=1)
+for i in range(4):
+    frame_main.grid_columnconfigure(i, weight=1)
