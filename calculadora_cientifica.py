@@ -134,3 +134,29 @@ pantalla = tk.Entry(
 pantalla.pack(fill="x", padx=20, pady=(30, 20))
 
 frame_cientifico = tk.Frame(ventana, bg=C_FONDO)
+frame_cientifico.pack(pady=5, padx=10, fill="x")
+
+cientific_buttons = [
+    ("sin", "sin("), ("cos", "cos("), ("tan", "tan("), ("asin", "asin("),
+    ("acos", "acos("), ("atan", "atan("), ("ln", "ln("), ("exp", "exp("),
+    ("pi", "pi"), ("e", "e"), ("x^y", "POWER"), ("ʸ√x", "ROOT")
+]
+
+r = 0
+c = 0
+for text, val in cientific_buttons:
+    if val == "POWER": cmd = insert_power
+    elif val == "ROOT": cmd = insert_root
+    else: cmd = lambda v=val: click_boton(v)
+
+    btn = tk.Button(
+        frame_cientifico, text=text,
+        font=("Arial", 10, "bold"),
+        bg=C_BTN_SCI, fg="white",
+        activebackground="#3700B3",
+        bd=0, height=2, width=5,
+        command=cmd
+    )
+
+    btn.grid(row=r, column=c, padx=3, pady=3, sticky="nsew")
+    frame_cientifico.grid_columnconfigure(c, weight=1)
